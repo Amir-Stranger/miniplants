@@ -1,0 +1,30 @@
+<form [formGroup]="Form" dir="rtl">
+    <div *ngIf="text">
+        <mat-form-field appearance="standard">
+            <mat-label>{{label}}</mat-label>
+            <input #input type='{{type}}' matInput placeholder='{{label}}' formControlName='control'>
+            <mat-error *ngIf="Form.get('control')!.touched || Form.get('control')!.invalid">{{label}} را وارد کنید.
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div *ngIf="email">
+        <mat-form-field appearance="standard">
+            <mat-label>{{label}}</mat-label>
+            <input #input type='{{type}}' matInput placeholder='{{label}}' formControlName='control' email>
+            <mat-error *ngIf="Form.get('control')!.touched && Form.get('control')!.invalid">
+                <mat-error *ngIf="Form.get('control')!.errors!.required">{{label}} را وارد کنید.</mat-error>
+                <mat-error *ngIf="Form.get('control')!.errors!.email">فرمت ایمیل صحیح نمیباشد. </mat-error>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div *ngIf="password">
+        <mat-form-field appearance="standard">
+            <mat-label>{{label}}</mat-label>
+            <input #input type='{{type}}' matInput placeholder='{{label}}' formControlName='control' minlength="6">
+            <mat-error *ngIf="Form.get('control')!.touched && Form.get('control')!.invalid">
+                <mat-error *ngIf="Form.get('control')!.errors!.required">{{label}} را وارد کنید.</mat-error>
+                <mat-error *ngIf="Form.get('control')!.errors!.minlength">حداقل شش کارکتر وارد کنید. </mat-error>
+            </mat-error>
+        </mat-form-field>
+    </div>
+</form>

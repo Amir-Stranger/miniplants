@@ -1,0 +1,13 @@
+.background{
+    background: url('../assets/img/background.jpeg') no-repeat fixed center ;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+.contain{
+    border-radius: 5px;
+    background-color: rgba(133, 135, 136, 0.521);
+    margin-left: 20em;
+    margin-right: 20em;
+}

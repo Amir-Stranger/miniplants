@@ -1,0 +1,8 @@
+<div class="containe">
+    <form class="m-3" [formGroup]="signInForm" (ngSubmit)="save()">
+        <my-input #username [text]="'text'" [type]="'email'" [label]="'نام کاربری'"></my-input>
+        <my-input #email [email]="'email'" [type]="'email'" [label]="'ایمیل'"></my-input>
+        <my-input #password [password]="'password'" [type]="'password'" [label]="'رمز ورود'"></my-input>
+        <my-button [btn_type]="'submit'" [btn_label]="'ثبت نام'"></my-button>
+    </form>
+</div>

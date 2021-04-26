@@ -1,0 +1,8 @@
+<div class="contain">
+    <form class="m-3" [formGroup]="loginForm" (submit)="save($event)" novalidate>
+        <my-input #user [text]="'text'" [type]="'email'" [label]="'نام کاربری'"></my-input>
+        <my-input #pass [password]="'password'" [type]="'password'" [label]="'رمز ورود'"></my-input>
+        <my-button [btn_type]="'submit'" [btn_label]="'ورود'"></my-button>
+        <a routerLink='/signin'>ثبت نام</a>
+    </form>
+</div>
