@@ -15,12 +15,12 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   constructor(private http: HttpClient) { }
 
-  data = JSON.stringify({
-    id: 1,
-    first_name: 'Aliiiiii',
-    email: 'ali@gmail.com',
-    password: '0000',
-  })
+  // data = JSON.stringify({
+  //   id: 1,
+  //   first_name: 'Aliiiiii',
+  //   email: 'ali@gmail.com',
+  //   password: '0000',
+  // })
 
 
   ngOnInit(): void {
@@ -29,9 +29,9 @@ export class LoginComponent implements OnInit {
       password: new FormControl('', [Validators.required, Validators.minLength(6)])
     })
 
-    this.http.get("http://localhost:3000").subscribe(resullt => {
-      console.log(resullt);
-    })
+    // this.http.get("http://localhost:3000").subscribe(resullt => {
+    //   console.log(resullt);
+    // })
   }
 
 
@@ -42,12 +42,12 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
     } else {
-      console.log("اطلاعات فرم را تکمیل کنید.")
-      this.http.post("http://localhost:3000", this.data, {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }).subscribe(res => console.log(res))
+      // console.log("اطلاعات فرم را تکمیل کنید.")
+      // this.http.post("http://localhost:3000", this.data, {
+      //   headers: {
+      //     "Content-Type": "application/json"
+      //   }
+      // }).subscribe(res => console.log(res))
     }
 
 
