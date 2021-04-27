@@ -1,6 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, Output, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoginService } from 'src/app/services/login-service/login.service';
+import { environment } from 'src/environments/environment';
 import { MyInputComponent } from '../../components/my-input/my-input.component';
 
 @Component({
@@ -13,14 +15,8 @@ export class LoginComponent implements OnInit {
   @ViewChild('pass') pass!: MyInputComponent;
 
   loginForm!: FormGroup;
-  constructor(private http: HttpClient) { }
+  constructor(private user_service: HttpClient) { }
 
-  // data = JSON.stringify({
-  //   id: 1,
-  //   first_name: 'Aliiiiii',
-  //   email: 'ali@gmail.com',
-  //   password: '0000',
-  // })
 
 
   ngOnInit(): void {
@@ -29,9 +25,7 @@ export class LoginComponent implements OnInit {
       password: new FormControl('', [Validators.required, Validators.minLength(6)])
     })
 
-    // this.http.get("http://localhost:3000").subscribe(resullt => {
-    //   console.log(resullt);
-    // })
+
   }
 
 
@@ -41,13 +35,14 @@ export class LoginComponent implements OnInit {
     this.loginForm.controls.password.setValue(this.pass.input.nativeElement.value);
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
+      this.user_service.get(environment.api + 2).subscribe(user => {
+        console.log(user);
+
+      })
+
     } else {
-      // console.log("اطلاعات فرم را تکمیل کنید.")
-      // this.http.post("http://localhost:3000", this.data, {
-      //   headers: {
-      //     "Content-Type": "application/json"
-      //   }
-      // }).subscribe(res => console.log(res))
+      console.log("اطلاعات فرم را تکمیل کنید.")
+
     }
 
 
